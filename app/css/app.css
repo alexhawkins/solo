@@ -1,4 +1,13 @@
 /* app css stylesheet */
+.panel-main {
+  background-color: #eee;
+}
+
+.add-supplement{
+ margin-bottom: 20px;
+ padding-bottom: 20px;
+ border-bottom: 1px dashed #ddd;
+}
 
 .category {
   margin-right: 3px;
@@ -14,7 +23,13 @@
 
 .full {
   margin-top: 20px;
-  width: 80%;
+  width: 75%;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #ccc;
+}
+
+.rating{
+  font-weight: bold;
 }
 
 .menu {

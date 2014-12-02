@@ -1,25 +1,27 @@
 <div class="row" ng-controller="SupplementDiaryController as suppDiaryCtrl">
- <h1>My Supplement Diary</h1>
-  <button class="btn btn-primary" ng-click="reviewFormCtrl.displayForm = !reviewFormCtrl.displayForm">{{reviewFormCtrl.displayForm ? "Hide Supplement Form" : "Add New Supplement"}}</button>
-  <hr />    
-  <review-form  ng-show="reviewFormCtrl.displayForm" supplements="suppDiaryCtrl.supplements" categories="suppDiaryCtrl.categories"></review-form>
-  <hr />
-
+ <div class="page-header">
+  <h1>Supplement Diary <small>&mdash; <em>keep track of your supplements</em></small></h1>
+ </div>
+      <span class="add-supplement col-sm-8">
+      <button class="btn btn-lg btn-primary btn-block" ng-click="reviewFormCtrl.displayForm = !reviewFormCtrl.displayForm">{{reviewFormCtrl.displayForm ? "Hide Supplement Form" : "Add New Supplement"}}</button>
+      </span>
+      <div>   
+      <review-form  ng-show="reviewFormCtrl.displayForm" supplements="suppDiaryCtrl.supplements" categories="suppDiaryCtrl.categories"></review-form>
+      </div>
 
   <ul class="list-unstyled col-sm-8">
 
     <!--FILTER SUPPLEMENTS-->
     <form>
       <fieldset class="form-group">
-      <h5>Search Supplement Diary</h5>
-       <div>
-          <input class= "form-control" ng-model="query" type="text" placeholder="Enter a Supplement Name" autofocus>
+      <div> 
+        <input class= "form-control" ng-model="query" type="text" placeholder="Search Supplement Diary" autofocus>
       </div>
       </fieldset>
     </form>
     
 
-    <li class="supplement row" ng-repeat="supplement in suppDiaryCtrl.supplements | filter:query | orderBy: '-createdAt' ">
+    <li class="supplement row" ng-repeat="supplement in suppDiaryCtrl.supplements | filter:query | orderBy: '-rating' ">
        <!--SUPPLEMENT IMAGES + RATING DIRECTIVE-->
       <supplement-images></supplement-images>
 
@@ -30,6 +32,7 @@
         <supplement-reviews></supplement-reviews>
         <!--SUPPLEMENT CATEGORIES DIRECTIVE-->
         <supplement-categories categories="supplement.categories">></supplement-categories>
+        <hr />
       </div>
     </li>
   </ul>
