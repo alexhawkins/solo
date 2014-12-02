@@ -115,6 +115,19 @@
             focus: true,
             stress: true
         }
+    }, {
+        name: 'Astaxanthin',
+        brand: 'Jarrow Formulas',
+        dose: '4mg',
+        asin: 'B004VCOOYG',
+        review: 'Astaxanthin is an excellent supplement that supports the whole body. Folks who have taken Astaxanthin have noted its anti-inflammatory properties, reduced joint and muscle pain, a fading of brown age spots and sun spots, improved skin tone and color, improved vision, increased energy, reduced fatigue, sunscreen properties, lower pulse rate, improved mood orientation, improved urination, and heightened libido.',
+        rating: 3,
+        categories: {
+            adaptogens: true,
+            focus: true,
+            stress: true,
+            hormones: true
+        }
     }];
 
 })();
