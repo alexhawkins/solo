@@ -1,0 +1,36 @@
+<h1>My Supplement Diary</h1>
+<div class="row" ng-controller="SupplementDiaryController as suppDiaryCtrl">
+  <button class="btn btn-primary" ng-click="reviewFormCtrl.displayForm = !reviewFormCtrl.displayForm">{{reviewFormCtrl.displayForm ? "Hide Supplement Form" : "Add New Supplement"}}</button>
+  <hr />    
+  <review-form  ng-show="reviewFormCtrl.displayForm" supplements="suppDiaryCtrl.supplements" categories="suppDiaryCtrl.categories"></review-form>
+  <hr />
+
+
+  <ul class="list-unstyled col-sm-8">
+
+    <!--FILTER SUPPLEMENTS-->
+    <form>
+      <fieldset class="form-group">
+      <h5>Search Supplement Diary</h5>
+       <div>
+          <input class= "form-control" ng-model="query" type="text" placeholder="Enter a Supplement Name" autofocus>
+      </div>
+      </fieldset>
+    </form>
+    
+
+    <li class="supplement row" ng-repeat="supplement in suppDiaryCtrl.supplements | filter:query | orderBy: 'name' ">
+       <!--SUPPLEMENT IMAGES + RATING DIRECTIVE-->
+      <supplement-images></supplement-images>
+
+      <div class="col-sm-9">
+        <!--SUPPLEMENT INFO DIRECTIVE-->
+        <supplement-info></supplement-info>
+        <!--SUPPLEMENT REVIEW DIRECTIVE-->
+        <supplement-reviews></supplement-reviews>
+        <!--SUPPLEMENT CATEGORIES DIRECTIVE-->
+        <supplement-categories categories="supplement.categories">></supplement-categories>
+      </div>
+    </li>
+  </ul>
+</div>
