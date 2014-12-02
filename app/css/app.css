@@ -12,6 +12,11 @@
   margin-right: 10px;
 }
 
+.full {
+  margin-top: 20px;
+  width: 80%;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

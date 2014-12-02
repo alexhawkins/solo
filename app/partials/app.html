@@ -1,5 +1,5 @@
-<h1>My Supplement Diary</h1>
 <div class="row" ng-controller="SupplementDiaryController as suppDiaryCtrl">
+ <h1>My Supplement Diary</h1>
   <button class="btn btn-primary" ng-click="reviewFormCtrl.displayForm = !reviewFormCtrl.displayForm">{{reviewFormCtrl.displayForm ? "Hide Supplement Form" : "Add New Supplement"}}</button>
   <hr />    
   <review-form  ng-show="reviewFormCtrl.displayForm" supplements="suppDiaryCtrl.supplements" categories="suppDiaryCtrl.categories"></review-form>
@@ -19,7 +19,7 @@
     </form>
     
 
-    <li class="supplement row" ng-repeat="supplement in suppDiaryCtrl.supplements | filter:query | orderBy: 'name' ">
+    <li class="supplement row" ng-repeat="supplement in suppDiaryCtrl.supplements | filter:query | orderBy: '-createdAt' ">
        <!--SUPPLEMENT IMAGES + RATING DIRECTIVE-->
       <supplement-images></supplement-images>
 

@@ -44,8 +44,8 @@
                     this.displayForm = false;
                     this.supplement = {};
                     this.addSuppReview = function(form) {
-                        console.log(arguments);
                         supplements.push(this.supplement) //push to our supplements array
+                        console.log(supplements);
                         this.supplement = {
                             categories: {}
                         };
