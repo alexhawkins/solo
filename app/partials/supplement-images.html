@@ -2,6 +2,7 @@
   <a href="http://www.amazon.com/gp/product/{{supplement.asin}}">
     <img ng-src="http://images.amazon.com/images/P/{{supplement.asin}}.jpg" alt="Picture of {{supplement.name}}" class="full img-responsive">
   </a>
-
-  <h4 class="rating"><span class="label label-success"> {{supplement.rating}} / 10</span></h4>
+  <!--RATING-->
+  <button class="btn btn-success" type="button">Rating: <span class="badge">{{supplement.rating}}</span>
+ </button>
 </aside>
