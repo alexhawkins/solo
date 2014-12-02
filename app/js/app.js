@@ -3,7 +3,10 @@
 // Declare app level module which depends on views, and components
 
 (function() {
-    angular.module('supplementDiary', [])
+    angular.module('supplementDiary', ['xeditable'])
+        .run(function(editableOptions) {
+            editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+        })
         .controller('SupplementDiaryController', function() {
             this.supplements = supplements;
             this.categories = categories;
@@ -60,7 +63,28 @@
                 }
             };
         })
-        /*FAKE DATABASE*/
+        .directive("contenteditable", function() {
+            return {
+                restrict: "A",
+                require: "ngModel",
+                link: function(scope, element, attrs, ngModel) {
+
+                    function read() {
+                        ngModel.$setViewValue(element.html());
+                    }
+
+                    ngModel.$render = function() {
+                        element.html(ngModel.$viewValue || "");
+                    };
+
+                    element.bind("blur keyup change", function() {
+                        scope.$apply(read);
+                    });
+                },
+
+            };
+        });
+    /*FAKE DATABASE*/
 
     var categories = ['fitness', 'sleep-aids', 'muscle', 'nootropic', 'memory', 'focus', 'detoxification', 'herbal', 'mood', 'energy', 'longetivity', 'antioxidants', 'adaptogens', 'hormones', 'stress'];
 
