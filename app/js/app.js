@@ -50,7 +50,7 @@
                         supplements.push(this.supplement) //push to our supplements array
                         console.log(supplements);
                         this.supplement = {
-                            categories: {}
+                            categories: {} //reset categories objec to empty after adding review
                         };
                         form.$setPristine(); //reset form to pristine state
                     }
